@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="index">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>移动端轮播器</title>
+	<link rel="stylesheet" href="css/photoslider.css" />
+	<style>
+		body, ul, li { 
+			margin:0;
+		}
+		.slider .dotsCustom { 
+			left: auto;
+			right: 12px;
+			-webkit-transform: translateX(0);
+			        transform: translateX(0);
+		}
+		.slider .dotsCustom span { 
+			background-color: rgba(255, 255, 255, 0.5);
+			box-shadow: none;
+			margin: 3px;
+		}
+	</style>
+</head>
+<body ontouchstart>
+	<div id="slider" class="slider"></div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.photoslider.js"></script>
+	<script>
+		$(function() { 
+			/* 图片滑动器 */
+			//要显示的图片
+			var imgs = [
+				{
+					img: "img/footRoot1.jpg",
+					caption: "1全团青年发展工作研讨推进会召开  推进从严治团"
+				},
+				{
+					img: "img/footRoot2.jpg",
+					caption: "2全团青年发展工作研讨推进会召开  推进从严治团"
+				},
+				{
+					img: "img/footRoot3.jpg",
+					caption: "3全团青年发展工作研讨推进会召开  推进从严治团"
+				},
+				{
+					img: "img/footRoot4.jpg",
+					caption: "4全团青年发展工作研讨推进会召开  推进从严治团"
+				}
+			];
+			//初始化
+			var $slider = $('#slider').slider({ 
+				imgs: imgs,
+				dotCls: 'dotsCustom',
+				height: 589/440,
+				caption: true,
+				//captionWithTag: true,
+				interval: 3000,
+				//displayCount: true,
+				//showDots: false
+				auto: false
+			});
+			//支持响应式
+			$slider.each(function(index, ele) { 
+				ele.instance.resize();
+			});
+		});
+	</script>
+
+</body>
+</html>
